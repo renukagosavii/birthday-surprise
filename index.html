@@ -12,6 +12,22 @@ body{margin:0;background:#10050d;color:#fff;font-family:Georgia,'Trebuchet MS',s
 button{font:inherit;cursor:pointer}
 .browserbar{height:72px;background:linear-gradient(#292929,#171717);display:flex;align-items:center;gap:12px;padding:10px 18px;border-bottom:1px solid #444;position:sticky;top:0;z-index:20}
 .tab{height:38px;min-width:245px;max-width:320px;border-radius:12px 12px 0 0;background:#383838;display:flex;align-items:center;gap:10px;padding:0 14px;font:13px Arial,sans-serif}
+.music-btn{border:1px solid #ff9fbd;background:#3b1226;color:#ffeaf1;border-radius:22px;padding:10px 14px;font:12px Arial,sans-serif;white-space:nowrap}
+.story{background:linear-gradient(180deg,#fff0f6,#ffd6e6,#fff1f6);color:#6d1b3b}
+.story h2{font-size:clamp(2rem,5vw,3.5rem);font-style:italic;margin:0 0 10px}
+.story-intro{font:1rem Arial,sans-serif}
+.storybook{max-width:1120px;margin:30px auto;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.story-card{background:#fffafc;border:2px solid #ffb5ce;border-radius:24px;padding:14px 12px 16px;box-shadow:0 12px 25px #b92d5b1a;overflow:hidden;position:relative}.scene-art{height:165px;border-radius:17px;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;gap:8px;font-size:4rem;background:linear-gradient(160deg,#ffe5ad,#f7a8bb 60%,#c5b5ed);margin-bottom:13px}.scene-art:before{content:"";position:absolute;left:-10%;right:-10%;bottom:-25px;height:75px;border-radius:50% 50% 0 0;background:#87b987;opacity:.8}.scene-art .scene-emoji{position:relative;z-index:1;filter:drop-shadow(0 4px 2px #6c385322);animation:girlBounce 2.5s ease-in-out infinite}.scene-art .scene-emoji:nth-child(2){animation-delay:.3s}.scene-art .scene-detail{position:absolute;z-index:1;top:9px;right:12px;font-size:1.8rem;animation:heartFloat 2.5s infinite}.scene-art .scene-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:3;display:none}.scene-art.has-image .scene-photo{display:block}.scene-art.has-image .scene-emoji,.scene-art.has-image .scene-detail{display:none}.scene-upload{display:inline-block;margin-top:10px;padding:8px 12px;border-radius:20px;background:#ffe0ea;color:#8c2047;border:1px solid #f3a2bd;font:12px Arial,sans-serif;cursor:pointer}.scene-upload input{display:none}.scene-note{font:12px/1.4 Arial,sans-serif;color:#a34b6a;margin-top:7px}
+.couple{height:150px;display:flex;align-items:center;justify-content:center;gap:5px;font-size:5rem;position:relative}
+.couple .girl{animation:girlBounce 2s ease-in-out infinite}
+.couple .boy{animation:boyBounce 2s ease-in-out infinite .3s}
+.couple .little-heart{position:absolute;top:5px;left:calc(50% - 12px);font-size:1.6rem;animation:heartFloat 2s ease-in-out infinite}
+.story-card h3{margin:12px 0 7px;font-size:1.3rem}
+.story-card p{font:14px/1.6 Arial,sans-serif;margin:0}
+.story-continue{margin-top:10px}
+@keyframes girlBounce{0%,100%{transform:translateY(0) rotate(-5deg)}50%{transform:translateY(-10px) rotate(5deg)}}
+@keyframes boyBounce{0%,100%{transform:translateY(0) rotate(5deg)}50%{transform:translateY(-12px) rotate(-5deg)}}
+@keyframes heartFloat{0%,100%{transform:translateY(0) scale(.9)}50%{transform:translateY(-12px) scale(1.2)}}
 .tab .dot{background:#ff6b9b;border-radius:50%;width:15px;height:15px;display:inline-block}
 .address{height:38px;flex:1;border-radius:24px;background:#101010;border:1px solid #454545;display:flex;align-items:center;padding:0 16px;color:#ddd;font:13px Arial,sans-serif;overflow:hidden;white-space:nowrap}
 .address span{color:#9bd6a5;margin-right:10px}
@@ -55,13 +71,16 @@ footer{text-align:center;padding:18px;color:#b68b9a;font:12px Arial,sans-serif;b
 @keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
 @keyframes twinkle{from{opacity:.45}to{opacity:1}}
 @keyframes rise{from{transform:translateY(0) rotate(0);opacity:0}15%{opacity:.7}to{transform:translateY(-110vh) rotate(35deg);opacity:0}}
-@media(max-width:650px){.browserbar{height:60px;padding:8px}.tab{min-width:0;width:150px;font-size:11px}.address{font-size:11px}.hero{min-height:370px}.section{padding:48px 15px}.photo-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.photo{min-height:135px}.letter{font-size:1rem;padding:22px 18px}}
+@media(max-width:850px){.storybook{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.browserbar{height:auto;min-height:60px;padding:8px;flex-wrap:wrap}.tab{min-width:0;width:150px;font-size:11px}.address{font-size:11px;min-width:120px}.music-btn{padding:8px 10px}.storybook{grid-template-columns:1fr;max-width:420px}.couple{height:125px}.hero{min-height:370px}.section{padding:48px 15px}.photo-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.photo{min-height:135px}.letter{font-size:1rem;padding:22px 18px}}
 </style>
 </head>
 <body>
 <div class="browserbar">
   <div class="tab"><span class="dot"></span><span>Happy Birthday, My Love ❤️</span></div>
-  <div class="address"><span>🔒</span> birthday-surprise.local / for-my-favorite-person</div>
+  <div class="address"><span>💗</span> our-little-love-story / birthday-surprise</div>
+  <button class="music-btn" id="musicBtn" onclick="toggleMusic()" aria-label="Toggle background music">♫ Play love music</button>
+  <label class="music-btn" for="songUpload" style="display:inline-block;cursor:pointer">＋ Upload my song<input id="songUpload" type="file" accept="audio/*" hidden onchange="loadMySong(this)"></label>
 </div>
 
 <header class="hero">
@@ -83,17 +102,49 @@ footer{text-align:center;padding:18px;color:#b68b9a;font:12px Arial,sans-serif;b
   </div>
 </section>
 
+<section class="section story" id="ourStory">
+  <div class="content">
+    <h2>Our Cute Little Love Story 🧸💗</h2>
+    <p class="story-intro">We started in two different college groups. He noticed me at college, we followed each other on Instagram, and then he sent me the first message. I slowly started talking to him, and little by little, our story became something special. 💗</p>
+    <p class="story-intro"><b>Our story, in order:</b> Tap “Add a photo” on any chapter to preview a real photo or cute cartoon picture.</p>
+    <div class="storybook">
+      <article class="story-card"><div class="scene-art" data-story-scene="1"><span class="scene-emoji">👧🏻</span><span class="scene-emoji">👦🏻</span><span class="scene-detail">👥</span><img class="scene-photo" alt="Our two college groups"><span style="position:absolute;bottom:5px;left:10px;z-index:2;font-size:1.5rem">🏫</span></div><h3>Chapter 1: Our Two Groups 👥</h3><p>We were part of two different groups, each with our own friends and little world. We didn't know our story was about to begin. 💞</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,1)"></label><div class="scene-note">Add a group photo or cartoon.</div></article>
+      <article class="story-card"><div class="scene-art" data-story-scene="2"><span class="scene-emoji">🎒</span><span class="scene-emoji">👫🏻</span><span class="scene-detail">👀</span><img class="scene-photo" alt="He saw me at college"><span style="position:absolute;bottom:4px;left:12px;z-index:2;font-size:1.6rem">🌼</span></div><h3>Chapter 2: He Saw Me at College 👀</h3><p>One day, he saw me at college. It might have felt like an ordinary day then, but it became the start of our little story. 🌸</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,2)"></label><div class="scene-note">Add a college memory or cartoon.</div></article>
+      <article class="story-card"><div class="scene-art" data-story-scene="3" style="background:linear-gradient(150deg,#fce3c5,#eaa6ad,#bba9dc)"><span class="scene-emoji">📱</span><span class="scene-emoji">💗</span><span class="scene-detail">✨</span><img class="scene-photo" alt="Following each other on Instagram"></div><h3>Chapter 3: We Followed on Instagram 📱</h3><p>Then we followed each other on Instagram. One little follow brought us a little closer. 💕</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,3)"></label><div class="scene-note">Add a cute phone or Instagram-themed picture.</div></article>
+      <article class="story-card"><div class="scene-art" data-story-scene="4" style="background:linear-gradient(150deg,#ffd9aa,#ff9cae,#b2c9ef)"><span class="scene-emoji">💌</span><span class="scene-emoji">📲</span><span class="scene-detail">💬</span><img class="scene-photo" alt="His first Instagram message"></div><h3>Chapter 4: He Messaged Me First 💌</h3><p>He sent me the first message! 🥹 I started talking to him, and our little chats slowly became something I looked forward to every day. 💗</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,4)"></label><div class="scene-note">Add a chat-themed cartoon or a photo you both like. Avoid sharing private messages publicly.</div></article>
+      <article class="story-card"><div class="scene-art" data-story-scene="5" style="background:linear-gradient(150deg,#c6e6bd,#ffe3b0,#b5d5ee)"><span class="scene-emoji">👧🏻</span><span class="scene-emoji">👦🏻</span><span class="scene-detail">💞</span><img class="scene-photo" alt="Meeting at college"><span style="position:absolute;bottom:4px;left:12px;z-index:2;font-size:1.7rem">🌳</span></div><h3>Chapter 5: We Met at College 🌸</h3><p>After all those chats, we met at college. Seeing each other in person made our story feel even more real. 🥰</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,5)"></label><div class="scene-note">Add your college photo or a cute cartoon scene.</div></article>
+      <article class="story-card"><div class="scene-art" data-story-scene="6" style="background:linear-gradient(150deg,#d5edc8,#ffe3b0,#c4d9f5)"><span class="scene-emoji">🚶🏻‍♀️</span><span class="scene-emoji">🚶🏻‍♂️</span><span class="scene-detail">🌿</span><img class="scene-photo" alt="Walking together around college"></div><h3>Chapter 6: Walking Together 🚶🏻‍♀️🚶🏻‍♂️</h3><p>We started walking together around college, chatting about little things and making simple moments feel special. 🌿💗</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,6)"></label><div class="scene-note">Add a walking-together photo or cartoon.</div></article>
+      <article class="story-card"><div class="scene-art" data-story-scene="7" style="background:linear-gradient(150deg,#fce3c5,#eaa6ad,#bba9dc)"><span class="scene-emoji">☕</span><span class="scene-emoji">🥰</span><span class="scene-detail">🌷</span><img class="scene-photo" alt="Our college café date"></div><h3>Chapter 7: Our College Café Date ☕</h3><p>Our café time—talking, laughing, and enjoying being together. The simplest dates became some of my favourite memories. 💕</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,7)"></label><div class="scene-note">Add a café picture or cartoon.</div></article>
+      <article class="story-card"><div class="scene-art" data-story-scene="8" style="background:linear-gradient(150deg,#ffd9aa,#ff9cae,#b2c9ef)"><span class="scene-emoji">🏍️</span><span class="scene-emoji">💨</span><span class="scene-detail">💗</span><img class="scene-photo" alt="Our bike ride"></div><h3>Chapter 8: Our Bike Rides 🏍️</h3><p>The road, the breeze, and being together—every bike ride became another memory I want to keep close. 💗</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,8)"></label><div class="scene-note">Add a bike-ride photo or cartoon.</div></article>
+      <article class="story-card"><div class="scene-art" data-story-scene="9" style="background:linear-gradient(150deg,#c6e6bd,#ffe3b0,#b5d5ee)"><span class="scene-emoji">🧑🏻‍🤝‍🧑🏼</span><span class="scene-emoji">👧🏻</span><span class="scene-detail">🌳</span><img class="scene-photo" alt="Chatting with friends under a tree"></div><h3>Chapter 9: Friends Under the Tree 🌳</h3><p>Chit-chatting with our friends under the tree, sharing laughs and little stories—another part of our college memories. 🌼</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,9)"></label><div class="scene-note">Add a group photo or cartoon under a tree.</div></article>
+      <article class="story-card"><div class="scene-art" data-story-scene="10" style="background:linear-gradient(150deg,#ffd5e6,#f8a4bd,#c4b4ee)"><span class="scene-emoji">👩🏻‍❤️‍👨🏻</span><span class="scene-detail">💐</span><img class="scene-photo" alt="Our story continues"></div><h3>Chapter 10: And Now… Us 💗</h3><p>From two groups to that first message, our college walks, café dates, and bike rides—I'm so happy our paths crossed. Here's to more memories together. ❤️</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,10)"></label><div class="scene-note">Finish with your favourite couple photo or cartoon.</div></article>
+    </div>
+    <button class="btn story-continue" onclick="document.querySelector('#memoryWall').scrollIntoView({behavior:'smooth'})">See our memory wall 📸 ↓</button>
+  </div>
+</section>
+
 <section class="section message">
   <div class="floaties" aria-hidden="true"></div>
   <div class="content">
     <h2>Happy Birthday,<br>My Love ✨</h2>
-    <div class="letter">
+    <div class="letter" id="loveLetter">
       <div style="font-style:italic;color:#ff8db2;font-size:1.5rem">To My Favorite Person,</div>
-      <p>Today is all about you! 🎂❤️</p>
-      <p>You are more than my boyfriend — you are my happiness, my comfort, my favorite person to talk to, and the one who can make an ordinary day feel special.</p>
-      <p>I hope this new year of your life brings you peace, success, laughter, and every beautiful thing your heart is wishing for. Never forget how special you are and how much you mean to me.</p>
-      <p>Whatever life brings, I hope we keep making memories, laughing at silly things, supporting each other, and choosing each other again and again.</p>
-      <p class="signature">Forever & Always,<br>Your Girl ❤️</p>
+      <div id="letterDisplay">
+        <p>Today is all about you! 🎂❤️</p>
+        <p>You are more than my boyfriend — you are my happiness, my comfort, my favorite person to talk to, and the one who can make an ordinary day feel special.</p>
+        <p>I hope this new year of your life brings you peace, success, laughter, and every beautiful thing your heart is wishing for. Never forget how special you are and how much you mean to me.</p>
+        <p>Whatever life brings, I hope we keep making memories, laughing at silly things, supporting each other, and choosing each other again and again.</p>
+        <p class="signature">Forever & Always,<br>Your Girl ❤️</p>
+      </div>
+    </div>
+    <div style="max-width:780px;margin:22px auto;text-align:left;background:#ffffff0b;border:1px solid #ff759966;border-radius:18px;padding:18px">
+      <h3 style="color:#ffb1ca;margin-top:0">💌 Make it your own love letter</h3>
+      <label for="letterFile" style="display:block;margin:10px 0;color:#ffe5ed">Upload a text file (.txt) containing your love letter:</label>
+      <input id="letterFile" type="file" accept=".txt,text/plain" style="max-width:100%;color:#ffe5ed" onchange="loadLoveLetter(this)">
+      <p style="font:13px/1.5 Arial,sans-serif;color:#e8bdcc">Or type your own message below:</p>
+      <textarea id="letterEditor" rows="6" placeholder="Write your own birthday letter here..." style="width:100%;padding:12px;border-radius:12px;border:1px solid #ff9fbd;background:#fff5f8;color:#542036;font:15px/1.6 Arial,sans-serif"></textarea>
+      <button class="btn" style="margin-top:10px" type="button" onclick="applyLoveLetter()">Preview my letter 💗</button>
+      <p style="font:12px/1.5 Arial,sans-serif;color:#e8bdcc">This editor previews your letter on this device. To show your letter to him online, put the final text into the website file and commit the updated file to GitHub.</p>
     </div>
     <div class="reasons">
       <span class="reason">💗 You make me smile</span>
@@ -105,7 +156,7 @@ footer{text-align:center;padding:18px;color:#b68b9a;font:12px Arial,sans-serif;b
   </div>
 </section>
 
-<section class="section memories">
+<section class="section memories" id="memoryWall">
   <div class="content">
     <h2>Our Little Memory Wall 📸</h2>
     <p style="color:#e8bdcc">Add your favorite photos together to make this surprise truly yours.</p>
@@ -117,7 +168,7 @@ footer{text-align:center;padding:18px;color:#b68b9a;font:12px Arial,sans-serif;b
       <label class="photo" style="--tilt:-2deg"><span class="placeholder"><span class="emoji">✨</span><br><small>My happy place</small></span><img alt="Memory 5"><input type="file" accept="image/*" hidden onchange="addPhoto(this)"></label>
       <label class="photo" style="--tilt:1deg"><span class="placeholder"><span class="emoji">💌</span><br><small>More memories to come</small></span><img alt="Memory 6"><input type="file" accept="image/*" hidden onchange="addPhoto(this)"></label>
     </div>
-    <div class="upload">Tip: click any photo card to choose a picture from your computer.</div>
+    <div class="upload">To show real photos to him online, upload them into your GitHub repository beside index.html as <b>memory1.jpg</b> through <b>memory6.jpg</b>. The cards will load them automatically. (Choosing a photo on your computer only previews it on your device.)</div>
   </div>
 </section>
 
@@ -152,6 +203,13 @@ function addPhoto(input){
   img.src=URL.createObjectURL(input.files[0]);
   card.classList.add('has-image');
 }
+function addStoryPhoto(input, chapter){
+  if(!input.files || !input.files[0]) return;
+  const scene=document.querySelector('[data-story-scene="'+chapter+'"]');
+  const img=scene.querySelector('.scene-photo');
+  img.src=URL.createObjectURL(input.files[0]);
+  scene.classList.add('has-image');
+}
 function confetti(){
   const emojis=['💖','💕','❤️','✨','💗','🌹'];
   for(let i=0;i<28;i++){
@@ -163,6 +221,45 @@ function confetti(){
     setTimeout(()=>e.remove(),4200);
   }
 }
+// Load gallery and story photos uploaded beside index.html in the GitHub repository.
+document.querySelectorAll('.photo img').forEach((img,index)=>{img.src='memory'+(index+1)+'.jpg';img.onload=()=>img.closest('.photo').classList.add('has-image');img.onerror=()=>{img.removeAttribute('src')}});
+document.querySelectorAll('.scene-photo').forEach((img,index)=>{img.src='story'+(index+1)+'.jpg';img.onload=()=>img.closest('.scene-art').classList.add('has-image');img.onerror=()=>{img.removeAttribute('src')}});
+
+// Optional uploaded song plays locally in this browser. For the public site, upload love-song.mp3 beside index.html.
+let uploadedSong=null;
+function loadMySong(input){
+  if(!input.files || !input.files[0]) return;
+  if(uploadedSong){uploadedSong.pause();URL.revokeObjectURL(uploadedSong.src)}
+  uploadedSong=new Audio(URL.createObjectURL(input.files[0]));
+  uploadedSong.loop=true;
+  const btn=document.getElementById('musicBtn');
+  btn.textContent='♫ Play my song';
+  btn.onclick=async()=>{if(!uploadedSong)return;if(uploadedSong.paused){try{await uploadedSong.play();btn.textContent='♫ Pause my song'}catch(e){alert('Please choose an audio file such as MP3 or M4A.')}}else{uploadedSong.pause();btn.textContent='♫ Play my song'}};
+  btn.title='Your uploaded song is previewing on this device only.';
+}
+function loadLoveLetter(input){
+  if(!input.files || !input.files[0]) return;
+  const reader=new FileReader();
+  reader.onload=()=>{document.getElementById('letterEditor').value=String(reader.result||'');};
+  reader.readAsText(input.files[0]);
+}
+function applyLoveLetter(){
+  const text=document.getElementById('letterEditor').value.trim();
+  if(!text){alert('Please type your letter or upload a .txt file first.');return;}
+  const display=document.getElementById('letterDisplay');
+  display.replaceChildren();
+  text.split(/\n\s*\n/).forEach((part,index)=>{
+    const p=document.createElement('p');p.textContent=part;
+    if(index===text.split(/\n\s*\n/).length-1){p.className='signature'}
+    display.appendChild(p);
+  });
+  document.getElementById('loveLetter').scrollIntoView({behavior:'smooth',block:'center'});
+}
+let audioContext=null, musicTimer=null, musicPlaying=false, noteIndex=0;
+const notes=[523.25,659.25,783.99,659.25,587.33,698.46,880,698.46,523.25,587.33,659.25,523.25];
+function playNote(){if(!audioContext||!musicPlaying)return;const now=audioContext.currentTime;const osc=audioContext.createOscillator();const gain=audioContext.createGain();osc.type='sine';osc.frequency.value=notes[noteIndex%notes.length];gain.gain.setValueAtTime(0.0001,now);gain.gain.exponentialRampToValueAtTime(0.045,now+0.08);gain.gain.exponentialRampToValueAtTime(0.0001,now+0.65);osc.connect(gain);gain.connect(audioContext.destination);osc.start(now);osc.stop(now+0.7);noteIndex++;}
+async function toggleMusic(){if(uploadedSong)return;const btn=document.getElementById('musicBtn');if(!audioContext){audioContext=new (window.AudioContext||window.webkitAudioContext)()}if(audioContext.state==='suspended')await audioContext.resume();musicPlaying=!musicPlaying;if(musicPlaying){playNote();musicTimer=setInterval(playNote,620);btn.textContent='♫ Pause love music'}else{clearInterval(musicTimer);btn.textContent='♫ Play love music'}}
+
 document.querySelectorAll('.floaties').forEach(box=>{
   for(let i=0;i<18;i++){
     const s=document.createElement('span');s.className='floaty';
