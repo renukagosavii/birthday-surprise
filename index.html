@@ -291,12 +291,18 @@ function playNote(){if(!audioContext||!musicPlaying)return;const now=audioContex
 function toggleMusic() {
   const player = document.getElementById("loveSongPlayer");
 
+  player.innerHTML = `
+    <iframe
+      width="1"
+      height="1"
+      src="https://www.youtube.com/embed/SQ4jZ-EAL88?autoplay=1&loop=1&playlist=SQ4jZ-EAL88"
+      title="Birthday background music"
+      allow="autoplay; encrypted-media"
+      style="position:absolute; left:-9999px;">
+    </iframe>
+  `;
+
   player.style.display = "block";
-
-  const iframe = player.querySelector("iframe");
-
-  iframe.src =
-    "https://www.youtube.com/embed/Zkqhiil2kSo?autoplay=1&playsinline=1";
 }
 document.querySelectorAll('.floaties').forEach(box=>{
   for(let i=0;i<18;i++){
