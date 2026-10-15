@@ -291,11 +291,12 @@ function playNote(){if(!audioContext||!musicPlaying)return;const now=audioContex
 function toggleMusic() {
   const player = document.getElementById("loveSongPlayer");
 
-  if (player.style.display === "none") {
-    player.style.display = "block";
-  } else {
-    player.style.display = "none";
-  }
+  player.style.display = "block";
+
+  const iframe = player.querySelector("iframe");
+
+  iframe.src =
+    "https://www.youtube.com/embed/Zkqhiil2kSo?autoplay=1&playsinline=1";
 }
 document.querySelectorAll('.floaties').forEach(box=>{
   for(let i=0;i<18;i++){
