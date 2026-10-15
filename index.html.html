@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy Birthday, My Love ❤️</title>
+<style>
+:root{--pink:#ff3978;--rose:#ff759c;--gold:#ffd79b;--ink:#10050d;--cream:#ffe5ed}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:#10050d;color:#fff;font-family:Georgia,'Trebuchet MS',sans-serif;overflow-x:hidden}
+button{font:inherit;cursor:pointer}
+.browserbar{height:72px;background:linear-gradient(#292929,#171717);display:flex;align-items:center;gap:12px;padding:10px 18px;border-bottom:1px solid #444;position:sticky;top:0;z-index:20}
+.tab{height:38px;min-width:245px;max-width:320px;border-radius:12px 12px 0 0;background:#383838;display:flex;align-items:center;gap:10px;padding:0 14px;font:13px Arial,sans-serif}
+.tab .dot{background:#ff6b9b;border-radius:50%;width:15px;height:15px;display:inline-block}
+.address{height:38px;flex:1;border-radius:24px;background:#101010;border:1px solid #454545;display:flex;align-items:center;padding:0 16px;color:#ddd;font:13px Arial,sans-serif;overflow:hidden;white-space:nowrap}
+.address span{color:#9bd6a5;margin-right:10px}
+.hero{min-height:430px;display:flex;align-items:center;justify-content:center;position:relative;isolation:isolate;overflow:hidden;text-align:center;padding:70px 20px;background:radial-gradient(ellipse at 50% 90%,#7b182e 0%,#260b16 35%,#090609 75%)}
+.hero:before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(circle at 15% 30%,#ffd6a544 0 2px,transparent 4px),radial-gradient(circle at 80% 22%,#ffd6a566 0 3px,transparent 5px),radial-gradient(circle at 62% 70%,#ff739955 0 2px,transparent 4px);background-size:170px 130px,230px 190px,190px 150px;animation:twinkle 4s infinite alternate}
+.hero h1{font-size:clamp(2.8rem,7vw,6.2rem);font-style:italic;line-height:1.05;margin:0;text-shadow:0 0 20px #ff477b;max-width:900px}
+.hero p{font:clamp(1.1rem,2vw,1.45rem) Arial,sans-serif;color:#ffe8ef;letter-spacing:1px}
+.hero .heart{font-size:3rem;display:inline-block;animation:beat 1s infinite}
+.gift{font-size:6rem;display:block;filter:drop-shadow(0 0 22px #ff477b);animation:bob 2.4s ease-in-out infinite}
+.btn{border:1px solid #ffb1ca;background:linear-gradient(100deg,#ff1764,#a70e49);color:white;border-radius:30px;padding:14px 28px;box-shadow:0 0 20px #ff2e7555;transition:.2s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 0 30px #ff2e75aa}
+.section{padding:62px 20px;text-align:center;position:relative}
+.reveal{background:linear-gradient(110deg,#ffd8e3,#fff0f4,#f9c2d2);color:#7b102d}
+.reveal h2{font-size:clamp(2rem,4vw,3.5rem);font-style:italic;margin:0 0 12px}
+.reveal p{font:1.05rem Arial,sans-serif;line-height:1.6}
+.message{background:radial-gradient(ellipse at center,#270817,#090509 70%);overflow:hidden}
+.message h2{font-size:clamp(2.5rem,6vw,5rem);font-style:italic;color:#ffb1ca;text-shadow:0 0 20px #ff3978;margin:0 0 25px}
+.letter{max-width:780px;margin:auto;border:1px solid #ff699866;border-radius:22px;padding:30px clamp(18px,5vw,55px);background:#160711cc;box-shadow:0 0 40px #ff39781a;line-height:1.9;font-size:1.15rem}
+.letter .signature{font-style:italic;font-size:1.5rem;color:#ff8db2;margin-top:20px}
+.reasons{display:flex;justify-content:center;gap:12px;flex-wrap:wrap;margin:30px auto 0;max-width:900px}
+.reason{border:1px solid #ff759966;background:#ffffff0b;border-radius:30px;padding:12px 20px;color:#ffe6ee}
+.memories{background:linear-gradient(#180611,#090509)}
+.memories h2{font-size:clamp(1.7rem,4vw,2.8rem);font-style:italic}
+.photo-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;max-width:950px;margin:30px auto}
+.photo{min-height:175px;border:5px solid #fff0f4;border-radius:5px;transform:rotate(var(--tilt));background:linear-gradient(145deg,#4c152d,#130a12);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;color:#ffd6e2;box-shadow:0 10px 24px #0008;overflow:hidden;position:relative}
+.photo .emoji{font-size:3rem}
+.photo small{font:13px Arial,sans-serif}
+.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:none}
+.photo.has-image img{display:block}
+.photo.has-image .placeholder{display:none}
+.upload{font:14px Arial,sans-serif;color:#ffdce7;margin:10px}
+.final{background:radial-gradient(ellipse at center,#591027,#13060e 70%);padding-bottom:75px}
+.final h2{font-size:clamp(2rem,5vw,4rem);color:#ffb1ca;font-style:italic}
+.final p{font-size:1.2rem;line-height:1.8}
+footer{text-align:center;padding:18px;color:#b68b9a;font:12px Arial,sans-serif;background:#080408}
+.floaties{position:absolute;inset:0;pointer-events:none;overflow:hidden;z-index:-0}
+.floaty{position:absolute;bottom:-50px;opacity:.6;animation:rise linear infinite}
+.content{position:relative;z-index:1}
+.hidden-message{display:none;margin:24px auto 0;max-width:650px;color:#7b102d;font-size:1.2rem;line-height:1.8}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.17)}}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+@keyframes twinkle{from{opacity:.45}to{opacity:1}}
+@keyframes rise{from{transform:translateY(0) rotate(0);opacity:0}15%{opacity:.7}to{transform:translateY(-110vh) rotate(35deg);opacity:0}}
+@media(max-width:650px){.browserbar{height:60px;padding:8px}.tab{min-width:0;width:150px;font-size:11px}.address{font-size:11px}.hero{min-height:370px}.section{padding:48px 15px}.photo-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.photo{min-height:135px}.letter{font-size:1rem;padding:22px 18px}}
+</style>
+</head>
+<body>
+<div class="browserbar">
+  <div class="tab"><span class="dot"></span><span>Happy Birthday, My Love ❤️</span></div>
+  <div class="address"><span>🔒</span> birthday-surprise.local / for-my-favorite-person</div>
+</div>
+
+<header class="hero">
+  <div class="floaties" aria-hidden="true"></div>
+  <div class="content">
+    <span class="gift">🎁</span>
+    <h1>Hey, My Love <span class="heart">❤️</span></h1>
+    <p>Someone has a very special surprise for you...</p>
+    <button class="btn" onclick="document.querySelector('#surprise').scrollIntoView({behavior:'smooth'})">A little surprise awaits ↓</button>
+  </div>
+</header>
+
+<section class="section reveal" id="surprise">
+  <div class="content">
+    <h2>Are you ready, handsome? 💗</h2>
+    <p>I made a little corner of the internet just for you.<br>Take a deep breath and tap the button below.</p>
+    <button class="btn" onclick="openSurprise()">Click to Open Your Surprise 💝</button>
+    <div class="hidden-message" id="revealMessage">You are my favorite notification, my safest place, and one of the best things that ever happened to me. 💖<br><br>Scroll down, birthday boy… this is all for you. 🎂</div>
+  </div>
+</section>
+
+<section class="section message">
+  <div class="floaties" aria-hidden="true"></div>
+  <div class="content">
+    <h2>Happy Birthday,<br>My Love ✨</h2>
+    <div class="letter">
+      <div style="font-style:italic;color:#ff8db2;font-size:1.5rem">To My Favorite Person,</div>
+      <p>Today is all about you! 🎂❤️</p>
+      <p>You are more than my boyfriend — you are my happiness, my comfort, my favorite person to talk to, and the one who can make an ordinary day feel special.</p>
+      <p>I hope this new year of your life brings you peace, success, laughter, and every beautiful thing your heart is wishing for. Never forget how special you are and how much you mean to me.</p>
+      <p>Whatever life brings, I hope we keep making memories, laughing at silly things, supporting each other, and choosing each other again and again.</p>
+      <p class="signature">Forever & Always,<br>Your Girl ❤️</p>
+    </div>
+    <div class="reasons">
+      <span class="reason">💗 You make me smile</span>
+      <span class="reason">🫶 You make me feel safe</span>
+      <span class="reason">⭐ I believe in you</span>
+      <span class="reason">🌹 You are amazing</span>
+      <span class="reason">💞 You are so loved</span>
+    </div>
+  </div>
+</section>
+
+<section class="section memories">
+  <div class="content">
+    <h2>Our Little Memory Wall 📸</h2>
+    <p style="color:#e8bdcc">Add your favorite photos together to make this surprise truly yours.</p>
+    <div class="photo-grid">
+      <label class="photo" style="--tilt:-2deg"><span class="placeholder"><span class="emoji">🌅</span><br><small>Our favorite moment</small></span><img alt="Memory 1"><input type="file" accept="image/*" hidden onchange="addPhoto(this)"></label>
+      <label class="photo" style="--tilt:2deg"><span class="placeholder"><span class="emoji">🥰</span><br><small>Your favorite smile</small></span><img alt="Memory 2"><input type="file" accept="image/*" hidden onchange="addPhoto(this)"></label>
+      <label class="photo" style="--tilt:-1deg"><span class="placeholder"><span class="emoji">🌙</span><br><small>A moment to remember</small></span><img alt="Memory 3"><input type="file" accept="image/*" hidden onchange="addPhoto(this)"></label>
+      <label class="photo" style="--tilt:2deg"><span class="placeholder"><span class="emoji">💑</span><br><small>Just us</small></span><img alt="Memory 4"><input type="file" accept="image/*" hidden onchange="addPhoto(this)"></label>
+      <label class="photo" style="--tilt:-2deg"><span class="placeholder"><span class="emoji">✨</span><br><small>My happy place</small></span><img alt="Memory 5"><input type="file" accept="image/*" hidden onchange="addPhoto(this)"></label>
+      <label class="photo" style="--tilt:1deg"><span class="placeholder"><span class="emoji">💌</span><br><small>More memories to come</small></span><img alt="Memory 6"><input type="file" accept="image/*" hidden onchange="addPhoto(this)"></label>
+    </div>
+    <div class="upload">Tip: click any photo card to choose a picture from your computer.</div>
+  </div>
+</section>
+
+<section class="section final">
+  <div class="content">
+    <div style="font-size:3rem">💌 💖 🎂</div>
+    <h2>One Last Little Thing…</h2>
+    <p>My wish for you is simple:<br>May you always have a reason to smile,<br>the courage to chase your dreams,<br>and people around you who love you deeply.</p>
+    <button class="btn" onclick="showFinal()">Tap for one last message 💋</button>
+    <p id="finalMessage" style="display:none;color:#ffb1ca;font-size:1.5rem;font-style:italic">I love you more than this little website could ever say. Happy Birthday, my favorite human. ❤️🥹</p>
+    <p style="margin-top:30px;font-size:1.8rem">I LOVE YOU SO MUCH! ❤️</p>
+  </div>
+</section>
+<footer>Made with all my love, just for you. ❤️</footer>
+
+<script>
+function openSurprise(){
+  document.getElementById('revealMessage').style.display='block';
+  document.getElementById('revealMessage').scrollIntoView({behavior:'smooth',block:'center'});
+  confetti();
+}
+function showFinal(){
+  const m=document.getElementById('finalMessage');
+  m.style.display='block';
+  m.scrollIntoView({behavior:'smooth',block:'center'});
+  confetti();
+}
+function addPhoto(input){
+  if(!input.files || !input.files[0]) return;
+  const card=input.closest('.photo');
+  const img=card.querySelector('img');
+  img.src=URL.createObjectURL(input.files[0]);
+  card.classList.add('has-image');
+}
+function confetti(){
+  const emojis=['💖','💕','❤️','✨','💗','🌹'];
+  for(let i=0;i<28;i++){
+    const e=document.createElement('span');
+    e.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+    e.style.cssText=`position:fixed;z-index:99;left:${Math.random()*100}vw;top:-35px;font-size:${16+Math.random()*22}px;pointer-events:none;transition:transform ${2+Math.random()*2}s linear,opacity 3s;`;
+    document.body.appendChild(e);
+    requestAnimationFrame(()=>{e.style.transform=`translateY(${window.innerHeight+80}px) rotate(${Math.random()*500}deg)`;e.style.opacity='0'});
+    setTimeout(()=>e.remove(),4200);
+  }
+}
+document.querySelectorAll('.floaties').forEach(box=>{
+  for(let i=0;i<18;i++){
+    const s=document.createElement('span');s.className='floaty';
+    s.textContent=['♥','♡','✨','💗'][Math.floor(Math.random()*4)];
+    s.style.left=Math.random()*100+'%';
+    s.style.animationDuration=(8+Math.random()*12)+'s';
+    s.style.animationDelay=(-Math.random()*15)+'s';
+    s.style.fontSize=(14+Math.random()*22)+'px';
+    box.appendChild(s);
+  }
+});
+</script>
+</body>
+</html>
