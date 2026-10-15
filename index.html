@@ -77,40 +77,10 @@ footer{text-align:center;padding:18px;color:#b68b9a;font:12px Arial,sans-serif;b
 </head>
 <body>
 <div class="browserbar">
-  <div class="tab">
-    <span class="dot"></span>
-    <span>Happy Birthday, My Love ❤️</span>
-  </div>
-
-  <div class="address">
-    <span>💗</span> our-little-love-story / birthday-surprise
-  </div>
-
-  <button class="music-btn" id="musicBtn"
-          onclick="toggleMusic()"
-          aria-label="Toggle background music">
-    ♫ Play love music
-  </button>
-
-  <label class="music-btn" for="songUpload"
-         style="display:inline-block;cursor:pointer">
-    ＋ Upload my song
-    <input id="songUpload" type="file"
-           accept="audio/*" hidden
-           onchange="loadMySong(this)">
-  </label>
-
-  <div id="loveSongPlayer"
-       style="display:none; margin:15px auto; max-width:400px; width:100%;">
-    <iframe
-      width="100%"
-      height="225"
-      src="https://www.youtube.com/embed/Zkqhiil2kSo"
-      title="Yeh Fitoor Mera"
-      allow="encrypted-media; picture-in-picture"
-      allowfullscreen>
-    </iframe>
-  </div>
+  <div class="tab"><span class="dot"></span><span>Happy Birthday, My Love ❤️</span></div>
+  <div class="address"><span>💗</span> our-little-love-story / birthday-surprise</div>
+  <button class="music-btn" id="musicBtn" onclick="toggleMusic()" aria-label="Toggle background music">♫ Play love music</button>
+  <label class="music-btn" for="songUpload" style="display:inline-block;cursor:pointer">＋ Upload my song<input id="songUpload" type="file" accept="audio/*" hidden onchange="loadMySong(this)"></label>
 </div>
 
 <header class="hero">
@@ -226,29 +196,12 @@ function showFinal(){
   m.scrollIntoView({behavior:'smooth',block:'center'});
   confetti();
 }
-function addStoryPhoto(input, chapter) {
-  if (!input.files || !input.files[0]) return;
-
-  const scene = document.querySelector(
-    '[data-story-scene="' + chapter + '"]'
-  );
-
-  if (!scene) return;
-
-  const img = scene.querySelector('.scene-photo');
-  const card = input.closest('.story-card');
-
-  img.src = URL.createObjectURL(input.files[0]);
-  scene.classList.add('has-image');
-
-  // Hide the Add a Photo button
-  const button = card.querySelector('.scene-upload');
-  if (button) button.style.display = 'none';
-
-  // Hide the instruction note
-  const note = card.querySelector('.scene-note');
-  if (note) note.style.display = 'none';
-}
+function addPhoto(input){
+  if(!input.files || !input.files[0]) return;
+  const card=input.closest('.photo');
+  const img=card.querySelector('img');
+  img.src=URL.createObjectURL(input.files[0]);
+  card.classList.add('has-image');
 }
 function addStoryPhoto(input, chapter){
   if(!input.files || !input.files[0]) return;
@@ -305,22 +258,8 @@ function applyLoveLetter(){
 let audioContext=null, musicTimer=null, musicPlaying=false, noteIndex=0;
 const notes=[523.25,659.25,783.99,659.25,587.33,698.46,880,698.46,523.25,587.33,659.25,523.25];
 function playNote(){if(!audioContext||!musicPlaying)return;const now=audioContext.currentTime;const osc=audioContext.createOscillator();const gain=audioContext.createGain();osc.type='sine';osc.frequency.value=notes[noteIndex%notes.length];gain.gain.setValueAtTime(0.0001,now);gain.gain.exponentialRampToValueAtTime(0.045,now+0.08);gain.gain.exponentialRampToValueAtTime(0.0001,now+0.65);osc.connect(gain);gain.connect(audioContext.destination);osc.start(now);osc.stop(now+0.7);noteIndex++;}
-function toggleMusic() {
-  const player = document.getElementById("loveSongPlayer");
+async function toggleMusic(){if(uploadedSong)return;const btn=document.getElementById('musicBtn');if(!audioContext){audioContext=new (window.AudioContext||window.webkitAudioContext)()}if(audioContext.state==='suspended')await audioContext.resume();musicPlaying=!musicPlaying;if(musicPlaying){playNote();musicTimer=setInterval(playNote,620);btn.textContent='♫ Pause love music'}else{clearInterval(musicTimer);btn.textContent='♫ Play love music'}}
 
-  player.innerHTML = `
-    <iframe
-      width="1"
-      height="1"
-      src="https://www.youtube.com/embed/SQ4jZ-EAL88?autoplay=1&loop=1&playlist=SQ4jZ-EAL88"
-      title="Birthday background music"
-      allow="autoplay; encrypted-media"
-      style="position:absolute; left:-9999px;">
-    </iframe>
-  `;
-
-  player.style.display = "block";
-}
 document.querySelectorAll('.floaties').forEach(box=>{
   for(let i=0;i<18;i++){
     const s=document.createElement('span');s.className='floaty';
@@ -333,91 +272,5 @@ document.querySelectorAll('.floaties').forEach(box=>{
   }
 });
 </script>
-  <!-- Romantic Animated Birthday Cake -->
-<style>
-.birthday-cake {
-  text-align: center;
-  padding: 45px 15px;
-  position: relative;
-  overflow: hidden;
-  background: linear-gradient(180deg, #fff0f5, #ffe0ec);
-  border-radius: 22px;
-  margin: 25px auto;
-  max-width: 600px;
-}
-
-.birthday-cake h2 {
-  color: #b83268;
-  font-family: Georgia, serif;
-}
-
-.cake {
-  font-size: 100px;
-  display: inline-block;
-  animation: cakeGlow 2s ease-in-out infinite alternate;
-}
-
-.candles {
-  font-size: 40px;
-  letter-spacing: 8px;
-  animation: candleFlicker 0.7s ease-in-out infinite alternate;
-}
-
-.cake-hearts {
-  font-size: 25px;
-  animation: floatHeart 3s ease-in-out infinite;
-  display: inline-block;
-}
-
-@keyframes cakeGlow {
-  from {
-    filter: drop-shadow(0 0 5px #ff9fc8);
-    transform: scale(1);
-  }
-  to {
-    filter: drop-shadow(0 0 22px #ff69b4);
-    transform: scale(1.04);
-  }
-}
-
-@keyframes candleFlicker {
-  from { opacity: 0.7; transform: rotate(-3deg); }
-  to { opacity: 1; transform: rotate(3deg); }
-}
-
-@keyframes floatHeart {
-  0%, 100% { transform: translateY(8px); }
-  50% { transform: translateY(-15px); }
-}
-
-.sparkle {
-  display: inline-block;
-  color: #d4a017;
-  animation: sparkle 1.5s infinite alternate;
-}
-
-@keyframes sparkle {
-  from { opacity: 0.3; transform: scale(0.8); }
-  to { opacity: 1; transform: scale(1.3); }
-}
-</style>
-
-<section class="birthday-cake">
-  <div class="cake-hearts">💗 💕 💗</div>
-
-  <h2>A Sweet Birthday Wish ✨</h2>
-  <p>One special day, one special person, endless love. ❤️</p>
-
-  <div class="candles">🕯️ 🕯️ 🕯️</div>
-  <div class="cake">🎂</div>
-
-  <p>
-    <span class="sparkle">✦</span>
-    Make a wish, my love!
-    <span class="sparkle">✦</span>
-  </p>
-
-  <div class="cake-hearts">💖 💞 💖</div>
-</section>
 </body>
 </html>
