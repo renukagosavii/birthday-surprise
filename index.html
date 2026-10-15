@@ -226,12 +226,29 @@ function showFinal(){
   m.scrollIntoView({behavior:'smooth',block:'center'});
   confetti();
 }
-function addPhoto(input){
-  if(!input.files || !input.files[0]) return;
-  const card=input.closest('.photo');
-  const img=card.querySelector('img');
-  img.src=URL.createObjectURL(input.files[0]);
-  card.classList.add('has-image');
+function addStoryPhoto(input, chapter) {
+  if (!input.files || !input.files[0]) return;
+
+  const scene = document.querySelector(
+    '[data-story-scene="' + chapter + '"]'
+  );
+
+  if (!scene) return;
+
+  const img = scene.querySelector('.scene-photo');
+  const card = input.closest('.story-card');
+
+  img.src = URL.createObjectURL(input.files[0]);
+  scene.classList.add('has-image');
+
+  // Hide the Add a Photo button
+  const button = card.querySelector('.scene-upload');
+  if (button) button.style.display = 'none';
+
+  // Hide the instruction note
+  const note = card.querySelector('.scene-note');
+  if (note) note.style.display = 'none';
+}
 }
 function addStoryPhoto(input, chapter){
   if(!input.files || !input.files[0]) return;
