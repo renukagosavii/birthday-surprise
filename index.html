@@ -87,7 +87,7 @@ footer{text-align:center;padding:18px;color:#b68b9a;font:12px Arial,sans-serif;b
 .candle.one{left:83px}.candle.two{left:110px;bottom:135px;height:52px}.candle.three{left:137px}
 .flame{position:absolute;left:50%;top:-20px;width:15px;height:22px;transform:translateX(-50%);border-radius:60% 40% 60% 40%;background:radial-gradient(circle at 50% 65%,#fff7b2 0 18%,#ffb12e 40%,#ff5a20 72%);box-shadow:0 0 18px #ffb12e;animation:flicker .65s infinite alternate}
 @keyframes flicker{from{transform:translateX(-50%) rotate(-7deg) scale(.9)}to{transform:translateX(-50%) rotate(7deg) scale(1.08)}}
-.flow-btn{margin:28px 0 0}.next-step{margin-top:30px}.music-panel{display:none;margin:0;padding:0;border:0;background:transparent}.music-panel iframe{position:fixed;left:-300px;bottom:0;width:200px;height:200px;border:0;opacity:.01;pointer-events:none}
+.flow-btn{margin:28px 0 0}.next-step{margin-top:30px}.music-panel{display:none;max-width:560px;margin:12px auto 0;border:1px solid #ff9fbd;border-radius:18px;padding:14px;background:#170813}.music-panel iframe{width:100%;height:100px;border:0;border-radius:12px}
 
 </style>
 </head>
@@ -95,7 +95,7 @@ footer{text-align:center;padding:18px;color:#b68b9a;font:12px Arial,sans-serif;b
 <div class="browserbar">
   <div class="tab"><span class="dot"></span><span>Happy Birthday, My Love ❤️</span></div>
   <div class="address"><span>💗</span> our-little-love-story / birthday-surprise</div>
-  <button class="music-btn" id="topMusicBtn" onclick="toggleMusic()" aria-label="Open Vaaroon song">♫ Play love music</button>
+  <button class="music-btn" id="musicBtn" onclick="toggleMusic()" aria-label="Toggle background music">♫ Play love music</button>
 
 </div>
 
@@ -110,9 +110,8 @@ footer{text-align:center;padding:18px;color:#b68b9a;font:12px Arial,sans-serif;b
     <h1>Happy Birthday, My Love ❤️</h1>
     <p>I made something special, just for you.<br>Make a wish, birthday boy. ✨</p>
     <button class="btn flow-btn" onclick="goTo('loveLetter')">A Little Surprise Awaits… 💌</button>
-    <div style="margin-top:20px"><button class="music-btn" type="button" onclick="toggleMusic()" id="musicBtnCake">♫ Play background music</button></div>
-    <p id="musicStatus" style="font:12px Arial,sans-serif;color:#ffd6e2;margin-top:8px" aria-live="polite">Tap once to start Vaaroon in the background.</p>
-    <div class="music-panel" id="musicPanel" aria-hidden="true"><div id="youtubePlayer"></div></div>
+    <div style="margin-top:20px"><button class="music-btn" type="button" onclick="toggleMusic()" id="musicBtn">♫ Play Vaaroon</button></div>
+    <div class="music-panel" id="musicPanel" aria-live="polite"><p style="margin:0 0 10px">Vaaroon 🎵 Tap play in the player if it doesn’t start automatically.</p><div id="youtubePlayer"></div></div>
   </div>
 </section>
 
@@ -153,15 +152,19 @@ footer{text-align:center;padding:18px;color:#b68b9a;font:12px Arial,sans-serif;b
 <section class="section story" id="ourStory">
   <div class="content">
     <h2>Our Cute Little Love Story 🧸💗</h2>
-    <p class="story-intro">From the first college meeting to following each other on Instagram, coffee dates, and bike rides—every little moment became part of our story. And this is only the beginning. ❤️</p>
-    <p class="story-intro"><b>Our story, in order:</b> Tap “Add a photo” on any chapter to preview a special memory.</p>
+    <p class="story-intro">We started in two different college groups. He noticed me at college, we followed each other on Instagram, and then he sent me the first message. I slowly started talking to him, and little by little, our story became something special. 💗</p>
+    <p class="story-intro"><b>Our story, in order:</b> Tap “Add a photo” on any chapter to preview a real photo or cute cartoon picture.</p>
     <div class="storybook">
-      <article class="story-card"><div class="scene-art" data-story-scene="1" style="background:linear-gradient(150deg,#c6e6f5,#ffd5e6,#c4b4ee)"><span class="scene-emoji">🎓</span><span class="scene-emoji">💗</span><span class="scene-detail">✨</span><img class="scene-photo" alt="The day we met in college"></div><h3>Chapter 1: The Day We Met 🎓</h3><p>It all started in college. Who knew that meeting you there would become one of the most beautiful parts of my life? Sometimes the best stories begin when we least expect them. 💞</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,1)"></label><div class="scene-note">Add a college memory.</div></article>
-      <article class="story-card"><div class="scene-art" data-story-scene="2" style="background:linear-gradient(150deg,#fce3c5,#eaa6ad,#bba9dc)"><span class="scene-emoji">📱</span><span class="scene-emoji">💌</span><span class="scene-detail">💕</span><img class="scene-photo" alt="Following each other on Instagram"></div><h3>Chapter 2: That Instagram Follow 📱</h3><p>Then came that little Instagram follow—a tiny notification that became the beginning of something special. One small step closer to you, and a story I never knew I needed. ❤️</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,2)"></label><div class="scene-note">Add a cute photo or Instagram-themed picture.</div></article>
-      <article class="story-card"><div class="scene-art" data-story-scene="3" style="background:linear-gradient(150deg,#c6e6bd,#ffe3b0,#b5d5ee)"><span class="scene-emoji">🏫</span><span class="scene-emoji">🥰</span><span class="scene-detail">🌸</span><img class="scene-photo" alt="Meeting again in college"></div><h3>Chapter 3: Meeting Again in College 🫶</h3><p>We met in college, and slowly you became more than just someone I knew. You became someone I looked forward to seeing, someone who could make an ordinary day feel special. 💗</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,3)"></label><div class="scene-note">Add a college photo together.</div></article>
-      <article class="story-card"><div class="scene-art" data-story-scene="4" style="background:linear-gradient(150deg,#ffe4b5,#ffb5ca,#c4d9f5)"><span class="scene-emoji">☕</span><span class="scene-emoji">💑</span><span class="scene-detail">🌷</span><img class="scene-photo" alt="Our first coffee date"></div><h3>Chapter 4: Our Coffee Date ☕</h3><p>Our coffee date wasn't just about coffee. It was about the smiles, the conversations, and the butterflies I felt sitting with you. A simple cup of coffee became a memory I want to keep close. 🥹</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,4)"></label><div class="scene-note">Add a café or coffee-date photo.</div></article>
-      <article class="story-card"><div class="scene-art" data-story-scene="5" style="background:linear-gradient(150deg,#ffd9aa,#ff9cae,#b2c9ef)"><span class="scene-emoji">🏍️</span><span class="scene-emoji">💨</span><span class="scene-detail">💗</span><img class="scene-photo" alt="Our bike rides"></div><h3>Chapter 5: Our Bike Rides 🏍️</h3><p>Every bike ride with you became a little adventure. It was never only about where we were going—it was about the breeze, the laughs, and being beside you. Wherever the road takes us, I love having you with me. 💕</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,5)"></label><div class="scene-note">Add a favorite bike-ride photo.</div></article>
-      <article class="story-card"><div class="scene-art" data-story-scene="6" style="background:linear-gradient(150deg,#ffd5e6,#f8a4bd,#c4b4ee)"><span class="scene-emoji">👩🏻‍❤️‍👨🏻</span><span class="scene-detail">♾️</span><img class="scene-photo" alt="Our forever"></div><h3>Chapter 6: From Us to Forever ♾️</h3><p>From college to Instagram, from coffee dates to bike rides—every little moment brought us closer. If I could choose all over again, I'd still choose you. Today, tomorrow, and forever. Here's to more memories, more laughter, and more love. ❤️</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,6)"></label><div class="scene-note">Finish with your favorite photo together.</div></article>
+      <article class="story-card"><div class="scene-art" data-story-scene="1"><span class="scene-emoji">👧🏻</span><span class="scene-emoji">👦🏻</span><span class="scene-detail">👥</span><img class="scene-photo" alt="Our two college groups"><span style="position:absolute;bottom:5px;left:10px;z-index:2;font-size:1.5rem">🏫</span></div><h3>Chapter 1: Our Two Groups 👥</h3><p>We were part of two different groups, each with our own friends and little world. We didn't know our story was about to begin. 💞</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,1)"></label><div class="scene-note">Add a group photo or cartoon.</div></article>
+      <article class="story-card"><div class="scene-art" data-story-scene="2"><span class="scene-emoji">🎒</span><span class="scene-emoji">👫🏻</span><span class="scene-detail">👀</span><img class="scene-photo" alt="He saw me at college"><span style="position:absolute;bottom:4px;left:12px;z-index:2;font-size:1.6rem">🌼</span></div><h3>Chapter 2: He Saw Me at College 👀</h3><p>One day, he saw me at college. It might have felt like an ordinary day then, but it became the start of our little story. 🌸</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,2)"></label><div class="scene-note">Add a college memory or cartoon.</div></article>
+      <article class="story-card"><div class="scene-art" data-story-scene="3" style="background:linear-gradient(150deg,#fce3c5,#eaa6ad,#bba9dc)"><span class="scene-emoji">📱</span><span class="scene-emoji">💗</span><span class="scene-detail">✨</span><img class="scene-photo" alt="Following each other on Instagram"></div><h3>Chapter 3: We Followed on Instagram 📱</h3><p>Then we followed each other on Instagram. One little follow brought us a little closer. 💕</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,3)"></label><div class="scene-note">Add a cute phone or Instagram-themed picture.</div></article>
+      <article class="story-card"><div class="scene-art" data-story-scene="4" style="background:linear-gradient(150deg,#ffd9aa,#ff9cae,#b2c9ef)"><span class="scene-emoji">💌</span><span class="scene-emoji">📲</span><span class="scene-detail">💬</span><img class="scene-photo" alt="His first Instagram message"></div><h3>Chapter 4: He Messaged Me First 💌</h3><p>He sent me the first message! 🥹 I started talking to him, and our little chats slowly became something I looked forward to every day. 💗</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,4)"></label><div class="scene-note">Add a chat-themed cartoon or a photo you both like. Avoid sharing private messages publicly.</div></article>
+      <article class="story-card"><div class="scene-art" data-story-scene="5" style="background:linear-gradient(150deg,#c6e6bd,#ffe3b0,#b5d5ee)"><span class="scene-emoji">👧🏻</span><span class="scene-emoji">👦🏻</span><span class="scene-detail">💞</span><img class="scene-photo" alt="Meeting at college"><span style="position:absolute;bottom:4px;left:12px;z-index:2;font-size:1.7rem">🌳</span></div><h3>Chapter 5: We Met at College 🌸</h3><p>After all those chats, we met at college. Seeing each other in person made our story feel even more real. 🥰</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,5)"></label><div class="scene-note">Add your college photo or a cute cartoon scene.</div></article>
+      <article class="story-card"><div class="scene-art" data-story-scene="6" style="background:linear-gradient(150deg,#d5edc8,#ffe3b0,#c4d9f5)"><span class="scene-emoji">🚶🏻‍♀️</span><span class="scene-emoji">🚶🏻‍♂️</span><span class="scene-detail">🌿</span><img class="scene-photo" alt="Walking together around college"></div><h3>Chapter 6: Walking Together 🚶🏻‍♀️🚶🏻‍♂️</h3><p>We started walking together around college, chatting about little things and making simple moments feel special. 🌿💗</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,6)"></label><div class="scene-note">Add a walking-together photo or cartoon.</div></article>
+      <article class="story-card"><div class="scene-art" data-story-scene="7" style="background:linear-gradient(150deg,#fce3c5,#eaa6ad,#bba9dc)"><span class="scene-emoji">☕</span><span class="scene-emoji">🥰</span><span class="scene-detail">🌷</span><img class="scene-photo" alt="Our college café date"></div><h3>Chapter 7: Our College Café Date ☕</h3><p>Our café time—talking, laughing, and enjoying being together. The simplest dates became some of my favourite memories. 💕</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,7)"></label><div class="scene-note">Add a café picture or cartoon.</div></article>
+      <article class="story-card"><div class="scene-art" data-story-scene="8" style="background:linear-gradient(150deg,#ffd9aa,#ff9cae,#b2c9ef)"><span class="scene-emoji">🏍️</span><span class="scene-emoji">💨</span><span class="scene-detail">💗</span><img class="scene-photo" alt="Our bike ride"></div><h3>Chapter 8: Our Bike Rides 🏍️</h3><p>The road, the breeze, and being together—every bike ride became another memory I want to keep close. 💗</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,8)"></label><div class="scene-note">Add a bike-ride photo or cartoon.</div></article>
+      <article class="story-card"><div class="scene-art" data-story-scene="9" style="background:linear-gradient(150deg,#c6e6bd,#ffe3b0,#b5d5ee)"><span class="scene-emoji">🧑🏻‍🤝‍🧑🏼</span><span class="scene-emoji">👧🏻</span><span class="scene-detail">🌳</span><img class="scene-photo" alt="Chatting with friends under a tree"></div><h3>Chapter 9: Friends Under the Tree 🌳</h3><p>Chit-chatting with our friends under the tree, sharing laughs and little stories—another part of our college memories. 🌼</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,9)"></label><div class="scene-note">Add a group photo or cartoon under a tree.</div></article>
+      <article class="story-card"><div class="scene-art" data-story-scene="10" style="background:linear-gradient(150deg,#ffd5e6,#f8a4bd,#c4b4ee)"><span class="scene-emoji">👩🏻‍❤️‍👨🏻</span><span class="scene-detail">💐</span><img class="scene-photo" alt="Our story continues"></div><h3>Chapter 10: And Now… Us 💗</h3><p>From two groups to that first message, our college walks, café dates, and bike rides—I'm so happy our paths crossed. Here's to more memories together. ❤️</p><label class="scene-upload">＋ Add a photo<input type="file" accept="image/*" onchange="addStoryPhoto(this,10)"></label><div class="scene-note">Finish with your favourite couple photo or cartoon.</div></article>
     </div>
     <button class="btn story-continue" onclick="goTo('memoryWall')">See our photos and memories 📸 ↓</button>
   </div>
@@ -172,7 +175,7 @@ footer{text-align:center;padding:18px;color:#b68b9a;font:12px Arial,sans-serif;b
 <section class="section memories" id="memoryWall">
   <div class="content">
     <h2>Our Little Memory Wall 📸</h2>
-    <p style="color:#e8bdcc">Our little collection of smiles, coffee dates, college moments, bike rides, and all the memories still waiting to happen. Tap any frame to add a photo. 📸❤️</p>
+    <p style="color:#e8bdcc">Add your favorite photos together to make this surprise truly yours.</p>
     <div class="photo-grid">
       <label class="photo" style="--tilt:-2deg"><span class="placeholder"><span class="emoji">🌅</span><br><small>Our favorite moment</small></span><img alt="Memory 1"><input type="file" accept="image/*" hidden onchange="addPhoto(this)"></label>
       <label class="photo" style="--tilt:2deg"><span class="placeholder"><span class="emoji">🥰</span><br><small>Your favorite smile</small></span><img alt="Memory 2"><input type="file" accept="image/*" hidden onchange="addPhoto(this)"></label>
@@ -244,27 +247,19 @@ function confetti(){
 document.querySelectorAll('.photo img').forEach((img,index)=>{img.src='memory'+(index+1)+'.jpg';img.onload=()=>img.closest('.photo').classList.add('has-image');img.onerror=()=>{img.removeAttribute('src')}});
 document.querySelectorAll('.scene-photo').forEach((img,index)=>{img.src='story'+(index+1)+'.jpg';img.onload=()=>img.closest('.scene-art').classList.add('has-image');img.onerror=()=>{img.removeAttribute('src')}});
 
-// Vaaroon plays inside the page. Browsers may require pressing Play in the embedded player.
-let musicPlaying = false;
+// Vaaroon is embedded from the YouTube link supplied by you.
+let youtubeStarted=false;
 function toggleMusic(){
-  const player = document.getElementById('youtubePlayer');
-  const panel = document.getElementById('musicPanel');
-  const status = document.getElementById('musicStatus');
-  const buttons = [document.getElementById('musicBtnCake'), document.getElementById('topMusicBtn')].filter(Boolean);
-  if(!musicPlaying){
+  const panel=document.getElementById('musicPanel');
+  const btn=document.getElementById('musicBtn');
+  if(!youtubeStarted){
+    document.getElementById('youtubePlayer').innerHTML='<iframe src="https://www.youtube-nocookie.com/embed/fMThiFar0vI?autoplay=1&rel=0" title="Vaaroon song" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>';
+    youtubeStarted=true;
     panel.style.display='block';
-    panel.setAttribute('aria-hidden','false');
-    player.innerHTML = '<iframe width="100%" height="110" src="https://www.youtube.com/embed/fMThiFar0vI?autoplay=1&controls=1&playsinline=1&rel=0" title="Vaaroon background music" allow="autoplay; encrypted-media; picture-in-picture; web-share" allowfullscreen></iframe>';
-    musicPlaying = true;
-    buttons.forEach(button=>button.textContent='♫ Vaaroon player is ready');
-    status.textContent='If it does not start automatically, press ▶ Play in the player above. The song stays on this page while you scroll.';
+    btn.textContent='♫ Vaaroon player open';
   }else{
-    player.innerHTML='';
-    panel.style.display='none';
-    panel.setAttribute('aria-hidden','true');
-    musicPlaying = false;
-    buttons.forEach(button=>button.textContent='♫ Play background music');
-    status.textContent='Music stopped. Tap to play Vaaroon again.';
+    panel.style.display=panel.style.display==='none'?'block':'none';
+    btn.textContent=panel.style.display==='none'?'♫ Show Vaaroon player':'♫ Hide Vaaroon player';
   }
 }
 function goTo(id){document.getElementById(id).scrollIntoView({behavior:'smooth',block:'start'});}
@@ -286,7 +281,10 @@ function applyLoveLetter(){
   });
   document.getElementById('loveLetter').scrollIntoView({behavior:'smooth',block:'center'});
 }
-// Background music is started only after a user click, as required by browser autoplay rules.
+let audioContext=null, musicTimer=null, musicPlaying=false, noteIndex=0;
+const notes=[523.25,659.25,783.99,659.25,587.33,698.46,880,698.46,523.25,587.33,659.25,523.25];
+function playNote(){if(!audioContext||!musicPlaying)return;const now=audioContext.currentTime;const osc=audioContext.createOscillator();const gain=audioContext.createGain();osc.type='sine';osc.frequency.value=notes[noteIndex%notes.length];gain.gain.setValueAtTime(0.0001,now);gain.gain.exponentialRampToValueAtTime(0.045,now+0.08);gain.gain.exponentialRampToValueAtTime(0.0001,now+0.65);osc.connect(gain);gain.connect(audioContext.destination);osc.start(now);osc.stop(now+0.7);noteIndex++;}
+async function toggleMusic(){if(uploadedSong)return;const btn=document.getElementById('musicBtn');if(!audioContext){audioContext=new (window.AudioContext||window.webkitAudioContext)()}if(audioContext.state==='suspended')await audioContext.resume();musicPlaying=!musicPlaying;if(musicPlaying){playNote();musicTimer=setInterval(playNote,620);btn.textContent='♫ Pause love music'}else{clearInterval(musicTimer);btn.textContent='♫ Play love music'}}
 
 document.querySelectorAll('.floaties').forEach(box=>{
   for(let i=0;i<18;i++){
